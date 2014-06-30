@@ -58,9 +58,7 @@
 			$this->initialize();
 
 			if (!$this->isLoggedIn())
-			{
 				return null;
-			}
 
 			return $this->session->getValue(self::USER);
 		}
