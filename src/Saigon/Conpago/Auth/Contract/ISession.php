@@ -40,11 +40,14 @@
 		public function setName($name);
 
 		/**
-		 * @param bool $removeOldSession
-		 *
 		 * @return bool
 		 */
-		public function regenerateId($removeOldSession = false);
+		public function regenerateId();
+
+		/**
+		 * @return bool
+		 */
+		public function regenerateIdAndRemoveOldSession();
 
 		/**
 		 * @return string

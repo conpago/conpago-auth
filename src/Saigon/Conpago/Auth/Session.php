@@ -9,9 +9,19 @@
 	namespace Saigon\Conpago\Auth;
 
 	use Saigon\Conpago\Auth\Contract\ISession;
+	use Saigon\Conpago\Accessor\SessionAccessor;
 
 	class Session implements ISession
 	{
+		/**
+		 * @var SessionAccessor
+		 */
+		private $sessionAccessor;
+
+		function __construct(SessionAccessor $sessionAccessor)
+		{
+			$this->sessionAccessor = $sessionAccessor;
+		}
 
 		/**
 		 * @return bool
@@ -58,13 +68,19 @@
 		}
 
 		/**
-		 * @param bool $removeOldSession
-		 *
 		 * @return bool
 		 */
-		public function regenerateId($removeOldSession = false)
+		public function regenerateId()
 		{
-			return session_regenerate_id($removeOldSession);
+			return session_regenerate_id(false);
+		}
+
+		/**
+		 * @return bool
+		 */
+		public function regenerateIdAndRemoveOldSession()
+		{
+			return session_regenerate_id(true);
 		}
 
 		/**
@@ -125,7 +141,7 @@
 		 */
 		public function register($name, $value)
 		{
-			$_SESSION[$name] = $value;
+			$this->sessionAccessor->setValue($name, $value);
 		}
 
 		/**
@@ -135,8 +151,7 @@
 		 */
 		public function isRegistered($name)
 		{
-			$b = isset($_SESSION[$name]);
-			return $b;
+			return $this->sessionAccessor->contains($name);
 		}
 
 		/**
@@ -146,6 +161,6 @@
 		 */
 		public function getValue($name)
 		{
-			return $_SESSION[$name];
+			return $this->sessionAccessor->getValue($name);
 		}
 	}

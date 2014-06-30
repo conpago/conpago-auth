@@ -25,7 +25,6 @@
 
 		function __construct(ISession $session)
 		{
-
 			$this->session = $session;
 		}
 
