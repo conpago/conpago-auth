@@ -16,11 +16,11 @@
 		public function build(IContainerBuilder $builder)
 		{
 			$builder
-				->registerType('Saigon\Conpago\Helpers\Session')
-				->asA('Saigon\Conpago\ISession');
+				->registerType('Saigon\Conpago\Auth\Session')
+				->asA('Saigon\Conpago\Auth\Contract\ISession');
 
 			$builder
-				->registerType('Saigon\Conpago\Core\SessionManager')
-				->asA('Saigon\Conpago\ISessionManager');
+				->registerType('Saigon\Conpago\Auth\SessionManager')
+				->asA('Saigon\Conpago\Auth\Contract\ISessionManager');
 		}
 	}
