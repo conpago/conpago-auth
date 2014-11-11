@@ -13,17 +13,16 @@
 	"repositories": [
 		{
 			"type": "hg",
-			"url": "http://scm.golek.biz/scm/hg/Conpago.DI"
+			"url": "http://scm.golek.biz/scm/hg/Conpago.Auth.Contract"
 		},
 		{
 			"type": "hg",
-			"url": "http://scm.golek.biz/scm/hg/Conpago"
+			"url": "http://scm.golek.biz/scm/hg/Conpago.Utils"
 		}
 	],
 	"require": {
-		"saigon/conpago-di": "dev-master",
-		"saigon/conpago": "dev-master",
-		"doctrine/orm": "*"
+		"saigon/conpago-auth-contract": "dev-master",
+		"saigon/conpago-utils": "dev-master"
 	},
 	"require-dev": {
 		"pdepend/pdepend": "2.0.0",
