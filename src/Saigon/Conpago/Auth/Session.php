@@ -9,7 +9,7 @@
 	namespace Saigon\Conpago\Auth;
 
 	use Saigon\Conpago\Auth\Contract\ISession;
-	use Saigon\Conpago\Accessor\SessionAccessor;
+	use Saigon\Conpago\Utils\SessionAccessor;
 
 	class Session implements ISession
 	{
