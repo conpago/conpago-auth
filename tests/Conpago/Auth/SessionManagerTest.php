@@ -6,11 +6,11 @@
 	 * Time: 17:26
 	 */
 
-	namespace Saigon\Conpago\Auth;
+	namespace Conpago\Auth;
 
-	use Saigon\Conpago\Auth\Contract\IAuthModel;
-	use Saigon\Conpago\Auth\Contract\ISession;
-	use Saigon\Conpago\Auth\Contract\ISessionManager;
+	use Conpago\Auth\Contract\IAuthModel;
+	use Conpago\Auth\Contract\ISession;
+	use Conpago\Auth\Contract\ISessionManager;
 
 	class SessionManagerTest extends \PHPUnit_Framework_TestCase
 	{
@@ -31,8 +31,8 @@
 
 		function setup()
 		{
-			$this->session = $this->getMock('Saigon\Conpago\Auth\Contract\ISession');
-			$this->authModel = $this->getMock('Saigon\Conpago\Auth\Contract\IAuthModel');
+			$this->session = $this->getMock('Conpago\Auth\Contract\ISession');
+			$this->authModel = $this->getMock('Conpago\Auth\Contract\IAuthModel');
 			$this->sessionManager = new SessionManager($this->session);
 		}
 
@@ -41,7 +41,7 @@
 			$this->session->expects($this->any())->method('getStatus')->willReturn(PHP_SESSION_NONE);
 
 			$dummyLogin = "dummyLogin";
-			$this->authModel = $this->getMock('Saigon\Conpago\Auth\Contract\IAuthModel');
+			$this->authModel = $this->getMock('Conpago\Auth\Contract\IAuthModel');
 			$this->authModel->expects($this->any())->method('getLogin')->willReturn($dummyLogin);
 
 			$this->session->expects($this->exactly(2))
@@ -60,7 +60,7 @@
 		 */
 		function testLoginThrowsExceptionWhenDisabledSessions()
 		{
-			$this->authModel = $this->getMock('Saigon\Conpago\Auth\Contract\IAuthModel');
+			$this->authModel = $this->getMock('Conpago\Auth\Contract\IAuthModel');
 			$this->session->expects($this->any())->method('getStatus')->willReturn(PHP_SESSION_DISABLED);
 			$this->sessionManager->login($this->authModel);
 		}

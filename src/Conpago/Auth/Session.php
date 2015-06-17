@@ -6,10 +6,10 @@
 	 * Time: 15:30
 	 */
 
-	namespace Saigon\Conpago\Auth;
+	namespace Conpago\Auth;
 
-	use Saigon\Conpago\Auth\Contract\ISession;
-	use Saigon\Conpago\Utils\SessionAccessor;
+	use Conpago\Auth\Contract\ISession;
+	use Conpago\Utils\SessionAccessor;
 
 	class Session implements ISession
 	{

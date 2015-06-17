@@ -6,11 +6,11 @@
 	 * Time: 15:30
 	 */
 
-	namespace Saigon\Conpago\Auth;
+	namespace Conpago\Auth;
 
-	use Saigon\Conpago\Auth\Contract\IAuthModel;
-	use Saigon\Conpago\Auth\Contract\ISession;
-	use Saigon\Conpago\Auth\Contract\ISessionManager;
+	use Conpago\Auth\Contract\IAuthModel;
+	use Conpago\Auth\Contract\ISession;
+	use Conpago\Auth\Contract\ISessionManager;
 
 	class SessionManager implements ISessionManager
 	{

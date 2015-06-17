@@ -1,5 +1,5 @@
 {
-	"name": "saigon/conpago-auth",
+	"name": "conpago/conpago-auth",
 	"description": "Conpago framework authorization implementation.",
 	"version": "0.0.1-alpha",
 	"type": "library",
@@ -12,8 +12,8 @@
 		}
 	],
 	"require": {
-		"saigon/conpago-auth-contract": "dev-default",
-		"saigon/conpago-utils": "dev-default"
+		"conpago/conpago-auth-contract": "dev-default",
+		"conpago/conpago-utils": "dev-default"
 	},
 	"require-dev": {
 		"pdepend/pdepend": "*",
@@ -24,7 +24,7 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"Saigon\\Conpago\\Auth\\": "src/"
+			"Conpago\\Auth\\": "src/"
 		}
 	}
 }
