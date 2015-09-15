@@ -33,7 +33,9 @@
 		{
 			$this->session = $this->getMock('Conpago\Auth\Contract\ISession');
 			$this->authModel = $this->getMock('Conpago\Auth\Contract\IAuthModel');
-			$this->sessionManager = new SessionManager($this->session);
+			$appPath = $this->getMock('Conpago\Helpers\Contract\IAppPath');
+			$appPath->expects($this->once())->method('realSessions')->willReturn('');
+			$this->sessionManager = new SessionManager($this->session, $appPath);
 		}
 
 		function testLogin()

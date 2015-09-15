@@ -11,6 +11,7 @@
 	use Conpago\Auth\Contract\IAuthModel;
 	use Conpago\Auth\Contract\ISession;
 	use Conpago\Auth\Contract\ISessionManager;
+	use Conpago\Helpers\Contract\IAppPath;
 
 	class SessionManager implements ISessionManager
 	{
@@ -23,9 +24,10 @@
 		 */
 		private $session;
 
-		function __construct(ISession $session)
+		function __construct(ISession $session, IAppPath $appPath)
 		{
 			$this->session = $session;
+			$this->session->setSavePath($appPath->realSessions());
 		}
 
 		/**
