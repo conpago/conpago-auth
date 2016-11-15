@@ -27,7 +27,7 @@
 		function __construct(ISession $session, IAppPath $appPath)
 		{
 			$this->session = $session;
-			$this->session->setSavePath($appPath->realSessions());
+			$this->session->setSavePath($appPath->sessions());
 		}
 
 		/**

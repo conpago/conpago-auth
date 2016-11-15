@@ -11,8 +11,9 @@
 	use Conpago\Auth\Contract\IAuthModel;
 	use Conpago\Auth\Contract\ISession;
 	use Conpago\Auth\Contract\ISessionManager;
+    use Conpago\Helpers\Contract\IAppPath;
 
-	class SessionManagerTest extends \PHPUnit_Framework_TestCase
+    class SessionManagerTest extends \PHPUnit_Framework_TestCase
 	{
 		/**
 		 * @var ISession
@@ -31,10 +32,10 @@
 
 		function setup()
 		{
-			$this->session = $this->getMock('Conpago\Auth\Contract\ISession');
-			$this->authModel = $this->getMock('Conpago\Auth\Contract\IAuthModel');
-			$appPath = $this->getMock('Conpago\Helpers\Contract\IAppPath');
-			$appPath->expects($this->once())->method('realSessions')->willReturn('');
+			$this->session = $this->createMock(ISession::class);
+			$this->authModel = $this->createMock(IAuthModel::class);
+			$appPath = $this->createMock(IAppPath::class);
+			$appPath->expects($this->once())->method('sessions')->willReturn('');
 			$this->sessionManager = new SessionManager($this->session, $appPath);
 		}
 
@@ -43,7 +44,7 @@
 			$this->session->expects($this->any())->method('getStatus')->willReturn(PHP_SESSION_NONE);
 
 			$dummyLogin = "dummyLogin";
-			$this->authModel = $this->getMock('Conpago\Auth\Contract\IAuthModel');
+			$this->authModel = $this->createMock(IAuthModel::class);
 			$this->authModel->expects($this->any())->method('getLogin')->willReturn($dummyLogin);
 
 			$this->session->expects($this->exactly(2))
@@ -62,7 +63,7 @@
 		 */
 		function testLoginThrowsExceptionWhenDisabledSessions()
 		{
-			$this->authModel = $this->getMock('Conpago\Auth\Contract\IAuthModel');
+			$this->authModel = $this->createMock(IAuthModel::class);
 			$this->session->expects($this->any())->method('getStatus')->willReturn(PHP_SESSION_DISABLED);
 			$this->sessionManager->login($this->authModel);
 		}
