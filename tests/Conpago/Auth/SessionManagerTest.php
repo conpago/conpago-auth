@@ -48,9 +48,9 @@ class SessionManagerTest extends TestCase
         $this->sessionMock->expects($this->exactly(2))
             ->method('register')
             ->withConsecutive(
-                    array(SessionManager::USER_LOGIN, $dummyLogin),
-                    array(SessionManager::USER, $this->authModelMock)
-                );
+                [SessionManager::USER_LOGIN, $dummyLogin],
+                [SessionManager::USER, $this->authModelMock]
+            );
 
         $this->sut->login($this->authModelMock);
     }
