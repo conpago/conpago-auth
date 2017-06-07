@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
+        bootstrap="./vendor/autoload.php"
         backupStaticAttributes="false"
 
         cacheTokens="false"
@@ -30,6 +31,8 @@
             <directory suffix=".php">src</directory>
             <exclude>
                 <file>src/Conpago/Auth/Session.php</file>
+                <file>src/Conpago/Auth/DisabledSessionsException.php</file>
+                <file>src/Conpago/Auth/UserNotLoggedException.php</file>
             </exclude>
         </whitelist>
     </filter>
