@@ -8,9 +8,11 @@
 
 namespace Conpago\Auth;
 
+use Conpago\Auth\Contract\DisabledSessionsException;
 use Conpago\Auth\Contract\IAuthModel;
 use Conpago\Auth\Contract\ISession;
 use Conpago\Auth\Contract\ISessionManager;
+use Conpago\Auth\Contract\UserNotLoggedException;
 use Conpago\Helpers\Contract\IAppPath;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
