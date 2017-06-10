@@ -8,9 +8,11 @@
 
 namespace Conpago\Auth;
 
+use Conpago\Auth\Contract\DisabledSessionsException;
 use Conpago\Auth\Contract\IAuthModel;
 use Conpago\Auth\Contract\ISession;
 use Conpago\Auth\Contract\ISessionManager;
+use Conpago\Auth\Contract\UserNotLoggedException;
 use Conpago\Helpers\Contract\IAppPath;
 
 class SessionManager implements ISessionManager
@@ -89,6 +91,8 @@ class SessionManager implements ISessionManager
 
     /**
      * @return void
+     *
+     * @throws DisabledSessionsException
      */
     public function logout(): void
     {
