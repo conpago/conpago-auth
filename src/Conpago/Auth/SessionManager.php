@@ -26,7 +26,7 @@ class SessionManager implements ISessionManager
     public function __construct(ISession $session, IAppPath $appPath)
     {
         $this->session = $session;
-        $this->session->setSavePath($appPath->sessions());
+        $this->session->setSavePath($appPath->sessions()->getReal());
     }
 
     /**

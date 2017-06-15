@@ -13,6 +13,7 @@ use Conpago\Auth\Contract\IAuthModel;
 use Conpago\Auth\Contract\ISession;
 use Conpago\Auth\Contract\ISessionManager;
 use Conpago\Auth\Contract\UserNotLoggedException;
+use Conpago\File\Contract\IPath;
 use Conpago\Helpers\Contract\IAppPath;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
@@ -33,8 +34,11 @@ class SessionManagerTest extends TestCase
         $this->sessionMock = $this->createMock(ISession::class);
         $this->authModelMock = $this->createMock(IAuthModel::class);
 
+        $path = $this->createMock(IPath::class);
+        $path->expects($this->once())->method('getReal')->willReturn('');
+
         $appPath = $this->createMock(IAppPath::class);
-        $appPath->expects($this->once())->method('sessions')->willReturn('');
+        $appPath->expects($this->once())->method('sessions')->willReturn($path);
 
         $this->sut = new SessionManager($this->sessionMock, $appPath);
     }
